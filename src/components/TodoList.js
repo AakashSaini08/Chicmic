@@ -14,6 +14,9 @@ function TodoList() {
     };
 
     const listOfItem =()=>{
+        
+        if(inputList=== "") return;
+        
             setItems((oldItems)=>{
                 return [...oldItems,inputList]
             })
@@ -21,23 +24,32 @@ function TodoList() {
     };
 
     const deleteItems=(id)=>{
-        console.log("Deleted");
         setItems((oldItems)=>{
             return oldItems.filter((arrElem,index)=>{
                 return index !== id;
             })
         })
     }
+    let handleKeyDown = (event)=>{
+        if(event.key === "Enter"){
+            deleteItems(index);
+        }
+        }
+    
 
   return (
     <div>
     <h1 style={{color:"red",background:"black"}}>TODO LIST</h1>
-        <input type="text" onChange={itemEvent} value={inputList} placeholder="Add some items"/>
-        <button onClick={listOfItem}>Update</button>
+        <input type="text" onChange={itemEvent} value={inputList} placeholder="Add some items" required />
+        <button onClick={listOfItem}>Add</button>
         <ol>
+        
             {items.map((itemval,index)=>{
                 return <List key={index} id={index} text = {itemval}
-                onSelect={deleteItems}
+                onSelect={()=>deleteItems(index)}
+                
+                
+
                 />
             })}
         </ol>

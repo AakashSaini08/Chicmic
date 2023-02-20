@@ -2,20 +2,16 @@ import React from "react";
 
 const TodoList=(props)=>{
 
-    return(
-        <>
+   return(
+    <>
         <div>
-
-        <li onClick={()=>{
-            props.onSelect(props.id);
-        }}>
-        {props.text} <button onClick={props.deleteItem}>Delete</button></li>
-        {/* <li>{props.text}</li> */}
-       
+        
+        <li >
+            {props.text} <button onClick={props.onSelect} >Delete</button></li>
         </div>
-        </>
+        </>)
   
-    )
+    
     
 };
 
