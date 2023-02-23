@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react'
 
 function HookuseRef() {
-    const myRef = useRef();
+    // const myRef = useRef();
     const firstName = useRef();
     const lastName = useRef();
 
